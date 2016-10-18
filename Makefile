@@ -19,6 +19,9 @@ run:
 		--name $(NAME) \
 		$(NAME):latest python3 app.py
 
+ssh:
+	docker exec -it $(NAME) /bin/bash
+
 repl:
 	docker exec -it $(NAME) ipython
 
