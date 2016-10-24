@@ -1,3 +1,5 @@
+from hypothesis import given, example
+import hypothesis.strategies as st
 import requests
 import pep8
 import os
@@ -12,6 +14,12 @@ def test_pep8_compliance():
                .check_files(filter(lambda x: x.endswith('.py'),
                             os.listdir('.')))
                .get_statistics()) == 0
+
+
+@given(x=st.integers())
+@example(-1)
+def test_abs(x):
+    assert abs(x) >= 0
 
 
 def test_up():
