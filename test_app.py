@@ -18,7 +18,7 @@ def test_pep8_compliance():
 
 @given(x=st.integers())
 @example(-1)
-def test_abs(x):
+def test_abs(x: int) -> None:
     assert abs(x) >= 0
 
 
