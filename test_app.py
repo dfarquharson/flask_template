@@ -23,4 +23,5 @@ def test_abs(x: int) -> None:
 
 
 def test_up():
-    assert requests.get('http://localhost:5050/up').text == 'Hello, World'
+    assert requests.get('http://localhost:5050/up').json() == \
+        {'status': 'happy'}

@@ -8,8 +8,9 @@ build:
 
 runi:
 	docker run -it --rm \
-		--name $(NAME) \
+		-p $(HOST_PORT):$(REMOTE_PORT) \
 		--volume=$(WORKDIR):/opt/sps/demo/ \
+		--name $(NAME) \
 		$(NAME):latest /bin/bash
 
 run:
