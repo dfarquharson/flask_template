@@ -1,11 +1,17 @@
-from flask import Flask
+from flask import Flask, Response
+import json
 
 app = Flask(__name__)
 
 
 @app.route('/up', methods=['GET'])
 def up():
-    return "Hello, World"
+    return rjson({'status': 'happy'})
+
+
+def rjson(blob, statcode=200):
+    return Response(json.dumps(blob), mimetype='application/json',
+                    status=statcode)
 
 
 if __name__ == '__main__':
